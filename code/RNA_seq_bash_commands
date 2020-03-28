@@ -1,0 +1,15 @@
+RNA-seq bash commands
+
+#accession number of interest for proving download capability: SRX3648483
+
+#reference genome under accession number CP009273.1
+#trying accession number SRR6671792.1
+
+#command for downloading FASTQ sequences.  I have not been able to get it to work while #specifying outdir
+./fastq-dump --outdir '/Users/dougwitt/Documents/MIT/20_440_Biological_Networks/project_codebase/rna_seq' fastq --gzip --skip-technical  --readids  --split-3  SRX3648483
+
+
+#command for running nextflow
+#limits to 4 cpus and 14 GB of memory, otherwise will crash the program
+#reads must be specified with minimum 1 '*' and tuple {}
+nextflow run nf-core/rnaseq  --reads '/Users/dougwitt/Documents/MIT/20_440_Biological_Networks/project_codebase/rna_seq/SRX3648483*_{1,2}.fastq.gz' --genome EB1 --max_cpus 4 --max_memory '14.GB' -profile docker
