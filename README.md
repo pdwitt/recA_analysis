@@ -9,6 +9,13 @@ The mutagenic polymerases are under the control recA [2]. recA is also required 
 This project uses bioinformatics tools to explore features the recA evolutionary process in E. coli and evaluate its feasibility as a drug target.
 
 # Part One: dN/dS evolutionary analysis
+This segment explores data from Richard Lenski's Longer Term Evolution Experiment. which has been propogating the same strain of bacterial for over 60,000 generations [9].  We hypothesize that RecA is more highly conserved compared to the remainder of the genome because it is essential for evolution. Thus, recA will have fewer non-synonymous mutations (lower Dn/Ds ratio) compared to the remainder of the genome. 
+
+dN/dS is the ratio of non-synonymous to synonymous mutations. dN/dS is an accepted metric to determine which genes are most (or least) conserved [9]. For each strain, the Dn/Ds ratio will be calculated for recA and the remainder of the genome. At a high level, the steps are as follows: 
+
+1. Align the strains against the ancestral strain (REL606), which serves as the reference strain [10, 11]. Determine the mutations by comparing the strains to the reference strains using breqseq [12]. Then, calculate the dN/dS ratio based on the mutations. 
+
+2. Evaluate if the difference between the dN/dS ratio for recA and the remainder of the genome is statistically significant [13]. 
 
 
 # Part Two: RNA-seq analysis
@@ -37,3 +44,8 @@ Next, these files are fed into the nextflow RNA-seq data pipeline, which perform
 6. Grenier F, Matteau D, Baby V, Rodrigue S. Complete Genome Sequence of Escherichia coli BW25113. Genome Announc. 2014;2(5):e01038-14. Published 2014 Oct 16. doi:10.1128/genomeA.01038-14
 7. Lawrence Cabusora, Electra Sutton, Andy Fulmer, Christian V. Forst, Differential network expression during drug and stress response, Bioinformatics, Volume 21, Issue 12, , Pages 2898–2905, https://doi.org/10.1093/bioinformatics/bti440
 8. Nicole Radde, Jutta Gebert, Christian V. Forst, Systematic component selection for gene-network refinement, Bioinformatics, Volume 22, Issue 21, 1 November 2006, Pages 2674–2680, https://doi.org/10.1093/bioinformatics/btl440
+9. http://myxo.css.msu.edu/ecoli/genomicsdat.html
+10. Barrick, J., et al. “Genome evolution and adaptation in a long-term experiment with Escherichia coli.” Nature, Vol 461, 29 October 2008. Doi: 10.1038/nature08480.
+11. Gouzy, J. and Salanoubat, M. “Genome sequence of the plant pathogen Ralstonia solanacearum” Nature, Vol 415, 31 January 2002. Doi: 10.1038/415497a
+12. https://barricklab.org/twiki/bin/view/Lab/ToolsBacterialGenomeResequencing
+
